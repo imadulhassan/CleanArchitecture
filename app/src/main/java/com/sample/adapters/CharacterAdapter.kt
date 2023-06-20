@@ -1,7 +1,7 @@
 package com.sample.adapters
 
 
-import android.annotation.SuppressLint
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +12,7 @@ import com.sample.extn.extractName
 import com.sample.models.RelatedTopic
 
 
-class CharacterAdapter(val itemClickListener: (Int) -> Unit) :
+class CharacterAdapter(val itemClickListener: (RelatedTopic) -> Unit) :
     Adapter<CharacterAdapter.ItemHolder>() {
 
     private var itemList = mutableListOf<RelatedTopic>()
@@ -25,7 +25,7 @@ class CharacterAdapter(val itemClickListener: (Int) -> Unit) :
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         holder.bindData(filteredItemList[position])
         holder.itemView.setOnClickListener {
-            itemClickListener(position)
+            itemClickListener(filteredItemList[position])
         }
     }
 
@@ -39,7 +39,7 @@ class CharacterAdapter(val itemClickListener: (Int) -> Unit) :
     }
 
 
-    @SuppressLint("NotifyDataSetChanged")
+
     fun filterList(query: String) {
         filteredItemList.clear()
         filteredItemList.addAll(itemList.filter {

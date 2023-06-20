@@ -1,7 +1,6 @@
 package com.sample.ui.home.fragments.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,9 +29,8 @@ class ListFragment : Fragment() {
     private val viewModel: ListViewModel by viewModels()
 
     private val characterAdapter by lazy {
-        CharacterAdapter { position: Int ->
-            Log.d("List", ": $position ")
-            viewModel.onClickItem(position)?.let { goToDetailsScreen(it) }
+        CharacterAdapter { item: RelatedTopic ->
+          goToDetailsScreen(item)
         }
     }
 

@@ -40,7 +40,4 @@ class ListViewModel @Inject constructor(private val mainRepository: MainReposito
         topicList.postValue(relatedTopics)
     }
 
-    fun onClickItem(position: Int): RelatedTopic? {
-        return itemsList.value?.get(position)
-    }
 }
