@@ -1,4 +1,4 @@
-package com.sample.repo
+package com.sample.network
 
 data class Resource<out T>(
     val status: Status,
@@ -6,7 +6,6 @@ data class Resource<out T>(
     val message: String?
 ) {
     companion object {
-
         fun <T> success(data: T?): Resource<T> {
             return Resource(Status.SUCCESS, data, null)
         }
@@ -14,7 +13,6 @@ data class Resource<out T>(
         fun <T> error(msg: String, data: T?): Resource<T> {
             return Resource(Status.ERROR, data, msg)
         }
-
     }
 }
 

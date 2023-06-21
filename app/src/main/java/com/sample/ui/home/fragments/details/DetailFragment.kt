@@ -1,6 +1,5 @@
 package com.sample.ui.home.fragments.details
 
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,30 +8,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.sample.databinding.FragmentChracterDetailBinding
 import com.sample.extn.extractName
-import com.sample.extn.fromHtml
-import com.sample.extn.loadPicassoImage
-import com.sample.models.RelatedTopic
+import com.sample.extn.textFromHtml
+import com.sample.extn.loadImage
+import com.sample.ui.home.HomeViewModel
 
 class DetailFragment : Fragment() {
 
     private var binding: FragmentChracterDetailBinding? = null
-
-    private val viewModel: DetailViewModel by activityViewModels()
-
-    @Suppress("DEPRECATION")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let { bundle ->
-            val obj = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                bundle.getParcelable("OBJ", RelatedTopic::class.java)
-            } else {
-                bundle.getParcelable("OBJ")
-            }
-            obj?.let {
-                viewModel.putValue(it)
-            }
-        }
-    }
+    private val viewModel by activityViewModels<HomeViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,24 +31,18 @@ class DetailFragment : Fragment() {
 
 
     private fun observeData() {
-        viewModel.item.observe(viewLifecycleOwner) {
-            setData(it)
-        }
-    }
-
-    private fun setData(item: RelatedTopic) {
-        item.let { relatedTopic ->
-            item.icon.let {
-                binding?.ivUser?.loadPicassoImage(it.uRL)
+        viewModel.relatedTopic.observe(viewLifecycleOwner) {
+            binding?.apply {
+                characterIv.loadImage(it.icon.uRL)
+                nameTv.text = extractName(it.text)
+                descriptionTv.text = textFromHtml(it.result)
             }
-            binding?.tvName?.text = extractName(relatedTopic.text)
-            binding?.tvDescription?.text = fromHtml(relatedTopic.result)
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        binding= null
+        binding = null
     }
 
 }

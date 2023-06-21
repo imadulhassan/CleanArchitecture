@@ -15,29 +15,26 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class Splash : AppCompatActivity() {
 
-    private var binding:ActivitySplashBinding? =null
+    private var binding: ActivitySplashBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivitySplashBinding.inflate(layoutInflater)
+        binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
         CoroutineScope(Dispatchers.Main).launch {
-            delay(4000)
-            nextActivity()
+            delay(1000)
+            moveToNextActivity()
         }
-
     }
 
-    private fun nextActivity(){
-        startActivity( Intent(this, HomeActivity::class.java))
+    private fun moveToNextActivity() {
+        startActivity(Intent(this, HomeActivity::class.java))
         finish()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        binding= null
-
+        binding = null
     }
-
 }

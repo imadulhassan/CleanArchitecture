@@ -3,12 +3,11 @@ package com.sample.models
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import com.sample.base.BaseResponse
 import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-data class ApisResponse(
+data class CharacterResponse(
     @SerializedName("Abstract")
     val `abstract`: String,
     @SerializedName("AbstractSource")
@@ -49,4 +48,4 @@ data class ApisResponse(
     val relatedTopics: List<RelatedTopic>,
     @SerializedName("Type")
     val type: String
-) : BaseResponse(), Parcelable
+) : Parcelable
