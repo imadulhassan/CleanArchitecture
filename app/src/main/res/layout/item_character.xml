@@ -7,8 +7,8 @@
     android:layout_margin="@dimen/_5sdp"
     android:background="@drawable/create_item_square_background"
     android:padding="@dimen/_5sdp"
-    app:cardCornerRadius="@dimen/_3sdp"
-    app:cardElevation="@dimen/_2sdp">
+    app:cardCornerRadius="@dimen/cornerRadius"
+    app:cardElevation="@dimen/cardElevation">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:padding="4dp"
             android:textAlignment="textStart"
             android:textColor="@color/textcolor"
-            android:textSize="@dimen/_13sdp"
+            android:textSize="@dimen/regularTextSize"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

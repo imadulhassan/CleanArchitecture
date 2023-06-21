@@ -5,7 +5,7 @@
     android:id="@+id/characterListContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/_16sdp">
+    android:layout_margin="@dimen/container_margin">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
@@ -22,7 +22,7 @@
         android:id="@+id/characterListRv"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"

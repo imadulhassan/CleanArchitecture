@@ -40,9 +40,9 @@ internal class CharacterAdapter(private val itemClickListener: (RelatedTopic) ->
         return characterListFiltered.size
     }
 
-    fun updateList(items: ArrayList<RelatedTopic>) {
-        characterList = items
-        characterListFiltered = items
+    fun updateList(items: List<RelatedTopic>) {
+        characterList = items.toMutableList()
+        characterListFiltered = items.toMutableList()
         notifyDataSetChanged()
     }
 

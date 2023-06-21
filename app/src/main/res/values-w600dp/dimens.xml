@@ -1,4 +1,6 @@
 <resources>
-    <dimen name="fab_margin">48dp</dimen>
-    <dimen name="container_horizontal_margin">48dp</dimen>
+    <dimen name="progressTextSize">18sp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_150dp">150dp</dimen>
 </resources>

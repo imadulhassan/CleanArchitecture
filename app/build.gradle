@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'com.google.dagger.hilt.android'
     id 'kotlin-kapt'
-    id 'kotlin-parcelize'
+
 }
 
 android {
@@ -86,7 +86,7 @@ dependencies {
     def materialV = '1.8.0'
     def constraintV = '2.1.4'
     def circleImageV = '3.1.0'
-    def sdpV = '1.0.6'
+    def glideV = '4.15.1'
 
 
     implementation 'androidx.recyclerview:recyclerview:' + recycleV
@@ -99,12 +99,11 @@ dependencies {
     implementation 'com.google.android.material:material:' + materialV
     implementation 'androidx.constraintlayout:constraintlayout:' + constraintV
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:' + coroutineV
-    implementation 'com.intuit.sdp:sdp-android:' + sdpV
     implementation 'com.google.dagger:hilt-android:' + hiltV
     kapt 'com.google.dagger:hilt-android-compiler:' + hiltV
     implementation 'com.squareup.retrofit2:converter-gson:' + retrofitV
     implementation 'com.squareup.retrofit2:retrofit:' + retrofitV
     implementation 'com.google.code.gson:gson:' + gsonV
     implementation 'de.hdodenhof:circleimageview:' + circleImageV
-    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    implementation 'com.github.bumptech.glide:glide:'+glideV
 }

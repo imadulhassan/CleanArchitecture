@@ -17,7 +17,7 @@
         android:id="@+id/detailFragment"
         android:name="com.sample.ui.home.fragments.details.DetailFragment"
         android:label="@string/label_character_details"
-        tools:layout="@layout/fragment_chracter_detail">
+        tools:layout="@layout/fragment_character_detail">
 
     </fragment>
 </navigation>

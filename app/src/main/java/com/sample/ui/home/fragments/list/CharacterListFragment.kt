@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sample.R
-import com.sample.databinding.FragmentChracterListBinding
+import com.sample.databinding.FragmentCharacterListBinding
 import com.sample.extn.hide
 import com.sample.extn.show
 import com.sample.extn.showToast
@@ -22,12 +22,16 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class CharacterListFragment : Fragment() {
 
-    private var binding: FragmentChracterListBinding? = null
+    private var binding: FragmentCharacterListBinding? = null
     private val viewModel by activityViewModels<HomeViewModel>()
     private val characterAdapter by lazy { CharacterAdapter { goToDetailsScreen(it) } }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentChracterListBinding.inflate(inflater, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentCharacterListBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -61,19 +65,21 @@ class CharacterListFragment : Fragment() {
 
     private fun observeData() {
         viewModel.dataList.observe(viewLifecycleOwner) {
-            characterAdapter.updateList(it as ArrayList<RelatedTopic>)
+            characterAdapter.updateList(it )
         }
         viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
             if (isVisible) {
                 if (uiState.isLoading) binding?.showLoading?.root?.show() else binding?.showLoading?.root?.hide()
-                uiState.errorMessage.takeIf { it.isBlank().not() }?.apply { context?.showToast(this@apply) }
+                uiState.errorMessage.takeIf { it.isBlank().not() }
+                    ?.apply { context?.showToast(this@apply) }
             }
         }
     }
 
     private fun goToDetailsScreen(relatedTopic: RelatedTopic) {
         viewModel.setSelectedItem(relatedTopic)
-        val itemDetailFragmentContainer: View? = binding?.root?.findViewById(R.id.detailFragmentContainer)
+        val itemDetailFragmentContainer: View? =
+            binding?.root?.findViewById(R.id.detailFragmentContainer)
         if (itemDetailFragmentContainer != null) {
             itemDetailFragmentContainer.findNavController().navigate(R.id.detailFragment)
         } else

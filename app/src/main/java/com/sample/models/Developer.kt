@@ -2,10 +2,8 @@ package com.sample.models
 
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 
-@Parcelize
+
 data class Developer(
     @SerializedName("name")
     val name: String,
@@ -13,4 +11,4 @@ data class Developer(
     val type: String,
     @SerializedName("url")
     val url: String
-) : Parcelable
+)

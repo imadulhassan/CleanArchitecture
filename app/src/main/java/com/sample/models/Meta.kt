@@ -2,10 +2,9 @@ package com.sample.models
 
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 
-@Parcelize
+
+
 data class Meta(
     @SerializedName("description")
     val description: String,
@@ -47,4 +46,4 @@ data class Meta(
     val topic: List<String>,
     @SerializedName("unsafe")
     val unsafe: Int
-) : Parcelable
+)

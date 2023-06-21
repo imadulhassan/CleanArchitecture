@@ -2,10 +2,9 @@ package com.sample.models
 
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 
-@Parcelize
+
+
 data class SrcOptions(
     @SerializedName("directory")
     val directory: String,
@@ -35,4 +34,4 @@ data class SrcOptions(
     val sourceSkip: String,
     @SerializedName("src_info")
     val srcInfo: String
-) : Parcelable
+)

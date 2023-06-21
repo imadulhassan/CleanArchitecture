@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="container_margin">8dp</dimen>
     <dimen name="progressTextSize">18sp</dimen>
-    <dimen name="cardElevation">4dp</dimen>
-    <dimen name="cornerRadius">3dp</dimen>
-    <dimen name="regularTextSize">14sp</dimen>
-    <dimen name="_5sdp">5.00dp</dimen>
     <dimen name="_10dp">10dp</dimen>
     <dimen name="_20dp">20dp</dimen>
     <dimen name="_150dp">150dp</dimen>

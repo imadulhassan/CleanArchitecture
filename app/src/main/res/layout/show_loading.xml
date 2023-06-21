@@ -23,7 +23,7 @@
         android:fontFamily="@font/gelion"
         android:text="@string/loading"
         android:textColor="@color/black"
-        android:textSize="@dimen/_16sdp"
+        android:textSize="@dimen/progressTextSize"
         app:layout_constraintEnd_toEndOf="@+id/progressbar"
         app:layout_constraintStart_toStartOf="@+id/progressbar"
         app:layout_constraintTop_toBottomOf="@+id/progressbar"

@@ -1,6 +1,4 @@
 <resources>
-    <string name="title_activity_chracter_detail_host">Character Detail</string>
-    <string name="title_chracter_list">Character List</string>
     <string name="title_chracter_detail">Character Detail</string>
     <string name="dashes">______</string>
     <string name="loading">Loading…</string>
